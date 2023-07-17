@@ -1,0 +1,179 @@
+[
+    {
+        "deviceName": "Microwave Oven",
+        "deviceID": "1325DKLNG343",
+        "installationDate": "23/4/2021",
+        "consumerNumber": "89345901",
+        "deviceHealth": "Good",
+        "energyConsumption": [
+            {
+                "date": "23/4/2021",
+                "value": 6
+            },
+            {
+                "date": "24/4/2021",
+                "value": 4
+            },
+            {
+                "date": "25/4/2021",
+                "value": 5
+            },
+            {
+                "date": "26/4/2021",
+                "value": 2
+            },
+            {
+                "date": "27/4/2021",
+                "value": 4
+            },
+            {
+                "date": "28/4/2021",
+                "value": 3
+            }
+        ],
+        "activeTime": [
+            {
+                "date": "23/4/2021",
+                "value": 6
+            },
+            {
+                "date": "24/4/2021",
+                "value": 4
+            },
+            {
+                "date": "25/4/2021",
+                "value": 5
+            },
+            {
+                "date": "26/4/2021",
+                "value": 2
+            },
+            {
+                "date": "27/4/2021",
+                "value": 4
+            },
+            {
+                "date": "28/4/2021",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "deviceName": "Refrigerator",
+        "deviceID": "1325DKLNG343",
+        "installationDate": "23/4/2021",
+        "consumerNumber": "89345901",
+        "deviceHealth": "Good",
+        "energyConsumption": [
+            {
+                "date": "23/4/2021",
+                "value": 6
+            },
+            {
+                "date": "24/4/2021",
+                "value": 4
+            },
+            {
+                "date": "25/4/2021",
+                "value": 5
+            },
+            {
+                "date": "26/4/2021",
+                "value": 2
+            },
+            {
+                "date": "27/4/2021",
+                "value": 4
+            },
+            {
+                "date": "28/4/2021",
+                "value": 3
+            }
+        ],
+        "activeTime": [
+            {
+                "date": "23/4/2021",
+                "value": 6
+            },
+            {
+                "date": "24/4/2021",
+                "value": 4
+            },
+            {
+                "date": "25/4/2021",
+                "value": 5
+            },
+            {
+                "date": "26/4/2021",
+                "value": 2
+            },
+            {
+                "date": "27/4/2021",
+                "value": 4
+            },
+            {
+                "date": "28/4/2021",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "deviceName": "Air Conditioner",
+        "deviceID": "1325DKLNG343",
+        "installationDate": "23/4/2021",
+        "consumerNumber": "89345901",
+        "deviceHealth": "Good",
+        "energyConsumption": [
+            {
+                "date": "23/4/2021",
+                "value": 6
+            },
+            {
+                "date": "24/4/2021",
+                "value": 4
+            },
+            {
+                "date": "25/4/2021",
+                "value": 5
+            },
+            {
+                "date": "26/4/2021",
+                "value": 2
+            },
+            {
+                "date": "27/4/2021",
+                "value": 4
+            },
+            {
+                "date": "28/4/2021",
+                "value": 3
+            }
+        ],
+        "activeTime": [
+            {
+                "date": "23/4/2021",
+                "value": 6
+            },
+            {
+                "date": "24/4/2021",
+                "value": 4
+            },
+            {
+                "date": "25/4/2021",
+                "value": 5
+            },
+            {
+                "date": "26/4/2021",
+                "value": 2
+            },
+            {
+                "date": "27/4/2021",
+                "value": 4
+            },
+            {
+                "date": "28/4/2021",
+                "value": 3
+            }
+        ]
+    }
+]

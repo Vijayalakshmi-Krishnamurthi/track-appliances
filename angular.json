@@ -24,7 +24,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/custom-theme.scss",
+              "src/styles.scss"
+            ],
+            "allowedCommonJsDependencies": [
+              "highcharts"
             ],
             "scripts": []
           },
@@ -88,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -119,6 +123,13 @@
           }
         }
       }
-    }},
-  "defaultProject": "track-appliances"
+    }
+  },
+  "defaultProject": "track-appliances",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "styleext": "scss"
+    }
+  }
 }

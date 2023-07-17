@@ -1,0 +1,28 @@
+<nb-card>
+    <nb-card-header>
+        <div>Login</div>
+    </nb-card-header>
+    <nb-card-body>
+        <div>
+            <div>Select Organization: </div>
+            <nb-select style="width: 100%;" name="organization" [disabled]="false" [(ngModel)]="selectedOrganization">
+                <nb-option *ngFor="let organization of organizationList" value="organization.value">{{ organization.label }}</nb-option>
+            </nb-select>
+        </div>
+        <div>
+            <div>Email ID: </div>
+            <input [disabled]="!selectedOrganization" type="text" nbInput fullWidth [(ngModel)]="userID">
+        </div>
+        <div>
+            <div>Password: </div>
+            <input [disabled]="!selectedOrganization" type="text" nbInput fullWidth [(ngModel)]="password">
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <div>
+            <!-- <button mat-button (click)="onNoClick()">No Thanks</button> -->
+            <button (click)="onYesClick()"><a routerLink="/report" routerLinkActive="active">Login</a></button>
+        </div>
+    </nb-card-footer>
+</nb-card>
+<!-- <router-outlet></router-outlet> -->
