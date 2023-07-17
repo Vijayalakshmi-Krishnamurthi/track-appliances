@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from  'rxjs';
+import { ApplicationService } from '../../../app/appService/application.service';
 
 interface TreeNode<T> {
   data: T;
@@ -22,51 +21,26 @@ interface ITableData {
   templateUrl: './table-view.component.html',
   styleUrls: ['./table-view.component.scss']
 })
-export class TableViewComponent implements OnInit {
-  private jsonURL = environment.assetsFolder + 'device-details.json';
-  private devices = [];
-  chartData: TreeNode<ITableData>[] = [];
+export class TableViewComponent {
+  showComponent: boolean = false;
+  deviceID: string = "";
 
-  constructor(private http: HttpClient) { 
-    this.getJSON().subscribe(data => {
-      this.devices = JSON.parse(JSON.stringify(data));
+  constructor(private http: HttpClient, private appService: ApplicationService) { }
 
-      this.devices.forEach((device) => {
-        let tabledata: ITableData = {
-        deviceID: device.deviceID,
-        deviceName: device.deviceName,
-        consumerNumber: device.consumerNumber,
-        installationDate: device.installationDate,
-        deviceHealth: device.deviceHealth,
-      }
-
-        this.chartData.push({ data: tabledata });
-      });
-      console.log(this.chartData);
-    })
-
-    // this.devices.forEach((device) => {
-    //   let tabledata: ITableData;
-    //   tabledata.deviceID = device.deviceID;
-    //   tabledata.deviceName = device.deviceName;
-    //   tabledata.consumerNumber = device.consumerNumber;
-    //   tabledata.installationDate = device.installationDate;
-    //   tabledata.deviceHealth = device.deviceHealth;
-
-    //   this.chartData.push({data: tabledata});
-    // });
-    // console.log(this.chartData);
-  }
-  
-  ngOnInit() {
-  }
-
+  chartData = this.appService.chartData$.getValue();
   customColumn = 'deviceID';
   defaultColumns = [ 'deviceName', 'installationDate', 'consumerNumber', 'deviceHealth' ];
   allColumns = [ this.customColumn, ...this.defaultColumns ];
-  // allColumns = [ 'deviceID', 'deviceName', 'installationDate', 'consumerNumber', 'deviceHealth' ];
+  columnHeader = {
+    deviceID: "Device ID",
+    deviceName: "Device Name",
+    installationDate: "Installation Date",
+    consumerNumber: "Consumer Number",
+    deviceHealth: "Device Health"
+  };
 
-  private getJSON(): Observable<any> {
-    return this.http.get(this.jsonURL);
+  public showLineChart(deviceID: string) {
+    this.deviceID = deviceID;
+    this.showComponent = true;
   }
 }

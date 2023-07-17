@@ -1,25 +1,33 @@
-<p>table-view works!</p>
-
-<nb-card>
+<nb-layout-column>
+  <nb-card>
     <nb-card-body>
 
-        <table [nbTreeGrid]="chartData" equalColumnsWidth>
-            <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
-            <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+      <table [nbTreeGrid]="chartData" equalColumnsWidth>
+        <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+        <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
 
-            <ng-container [nbTreeGridColumnDef]="customColumn">
-                <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{customColumn}}</th>
-                <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[customColumn]}}</td>
-            </ng-container>
+        <ng-container [nbTreeGridColumnDef]="customColumn">
+          <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{columnHeader[customColumn]}}</th>
+          <td nbTreeGridCell *nbTreeGridCellDef="let row"><a routerLink="" (click)="showLineChart(row.data[customColumn])">{{row.data[customColumn]}}</a></td>
+        </ng-container>
 
-            <ng-container *ngFor="let column of defaultColumns" [nbTreeGridColumnDef]="column">
-                <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>
-                    {{column}}
-                </th>
-                <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
-            </ng-container>
+        <ng-container *ngFor="let column of defaultColumns" [nbTreeGridColumnDef]="column">
+          <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>
+            {{columnHeader[column]}}
+          </th>
+          <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
+        </ng-container>
 
-        </table>
+      </table>
 
     </nb-card-body>
-</nb-card>
+  </nb-card>
+  <nb-card>
+    <pie-chart></pie-chart>
+  </nb-card>
+  <nb-card>
+    <line-chart *ngIf="showComponent" [showComponent]="showComponent" [deviceID]="deviceID"></line-chart>
+  </nb-card>
+</nb-layout-column>
+
+

@@ -1,0 +1,11 @@
+<div class="row" style="display: flex;">
+  <div class="col-6">
+    <div id="energy-chart-line"></div>
+  </div>
+  <div class="col-6">
+    <div id="time-chart-line"></div>
+  </div>
+</div>
+<div class="row" style="height: 50px;">
+  <linear-gauge *ngIf="showGauge" [data]="selectedOption" [showGauge]="showGauge" [chartType]="chartType"></linear-gauge>
+</div>

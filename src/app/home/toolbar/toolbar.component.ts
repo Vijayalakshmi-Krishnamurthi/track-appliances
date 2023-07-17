@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoginComponent} from "./../../login/login.component";
 import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
+import { ApplicationService } from '../../appService/application.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ToolbarComponent {
 
-  constructor(public dialog: NbDialogService, public router: Router) {}
+  constructor(public dialog: NbDialogService, public router: Router, private appService: ApplicationService) {}
 
   openLogin(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
@@ -23,7 +24,14 @@ export class ToolbarComponent {
 
     dialogRef.onClose.subscribe((result) => {
       console.log(result + 'The dialog was closed');
-      this.router.navigate(["/table-view"]);
+      const isDeviceData = this.appService.getJSONData();
+      // const timeInterval = setInterval(() => {
+      //   if(isDeviceData) {
+          this.router.navigate(["/table-view"]);
+      //     clearInterval(timeInterval);
+      //   }
+      // }, 1500);
+
     });
   }
 

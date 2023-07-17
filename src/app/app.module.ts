@@ -13,6 +13,7 @@ import { ReportsModule } from './reports/reports.module';
 import { ToolbarComponent } from './home/toolbar/toolbar.component';
 import { ContentComponent } from './home/content/content.component';
 import { FooterComponent } from './home/footer/footer.component';
+import { ApplicationService } from './appService/application.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { FooterComponent } from './home/footer/footer.component';
     NbEvaIconsModule,
     ReportsModule
   ],
-  providers: [],
+  providers: [ApplicationService],
   entryComponents:[
     LoginComponent
   ],

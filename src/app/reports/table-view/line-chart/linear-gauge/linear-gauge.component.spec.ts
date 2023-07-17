@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LinearGaugeComponent } from './linear-gauge.component';
 
-describe('LinearGaugeComponent', () => {
+describe('LinearGuageComponent', () => {
   let component: LinearGaugeComponent;
   let fixture: ComponentFixture<LinearGaugeComponent>;
 
