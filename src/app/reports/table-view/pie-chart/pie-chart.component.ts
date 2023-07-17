@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ApplicationService } from 'app/appService/application.service';
 import * as Highcharts from 'highcharts';
+
+interface IData {
+  name: string;
+  y: number;
+}
 
 @Component({
   selector: 'pie-chart',
@@ -8,7 +14,12 @@ import * as Highcharts from 'highcharts';
 })
 export class PieChartComponent {
 
-  constructor() { }
+  constructor(private appService: ApplicationService) {
+    this.getData();
+  }
+
+  chartData: IData[] = [];
+
 
   ngOnChanges(): void {
   }
@@ -21,17 +32,29 @@ export class PieChartComponent {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
-  private createChartPie(): void {
-    let date = new Date();
-    const data: any[] = [];
-
-    for (let i = 0; i < 5; i++) {
-      date.setDate(new Date().getDate() + i);
-      data.push({
-        name: `${date.getDate()}/${date.getMonth() + 1}`,
-        y: this.getRandomNumber(0, 1000),
+  private getData(): void {
+    let totalEnergy: number = 0;
+    const deviceData = this.appService.chartData$.getValue();
+    deviceData.forEach((device, index) => {
+      device.data.energyConsumption.forEach((energy) => {
+        totalEnergy = totalEnergy + parseInt(energy.value);
       });
-    }
+      this.chartData[index] = { name: device.data.deviceName, y: totalEnergy };
+      totalEnergy = 0;
+    })
+  }
+
+  private createChartPie(): void {
+    // let date = new Date();
+    // const data: any[] = [];
+
+    // for (let i = 0; i < 5; i++) {
+    //   date.setDate(new Date().getDate() + i);
+    //   data.push({
+    //     name: `${date.getDate()}/${date.getMonth() + 1}`,
+    //     y: this.getRandomNumber(0, 1000),
+    //   });
+    // }
 
     const chart = Highcharts.chart('chart-pie', {
       chart: {
@@ -51,17 +74,17 @@ export class PieChartComponent {
       series: [{
         name: null,
         innerSize: '50%',
-        data,
+        data: this.chartData,
       }],
     } as any);
 
-    setInterval(() => {
-      date.setDate(date.getDate() + 1);
-      chart.series[0].addPoint({
-        name: `${date.getDate()}/${date.getMonth() + 1}`,
-        y: this.getRandomNumber(0, 1000),
-      }, true, true);
-    }, 1500);
+    // setInterval(() => {
+    //   date.setDate(date.getDate() + 1);
+    //   chart.series[0].addPoint({
+    //     name: `${date.getDate()}/${date.getMonth() + 1}`,
+    //     y: this.getRandomNumber(0, 1000),
+    //   }, true, true);
+    // }, 1500);
   }
 
 }
