@@ -24,6 +24,8 @@ export class LineChartComponent {
   constructor(private appService: ApplicationService) { }
 
   ngOnChanges(changes: SimpleChanges) {
+    this.energyChartData = [];
+    this.timeChartData = [];
     console.log(changes);
     if(this.deviceID) {
       const deviceData = this.appService.chartData.find((device) => {
@@ -67,7 +69,7 @@ export class LineChartComponent {
         type: 'line',
       },
       title: {
-        text: 'Energy Consumption',
+        text: 'Energy Consumption (in kWatts)',
       },
       credits: {
         enabled: false,
@@ -119,7 +121,7 @@ export class LineChartComponent {
         type: 'line',
       },
       title: {
-        text: 'Active Time',
+        text: 'Active Time (in Hrs)',
       },
       credits: {
         enabled: false,

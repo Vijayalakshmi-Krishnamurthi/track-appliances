@@ -25,6 +25,7 @@ export class ToolbarComponent {
     dialogRef.onClose.subscribe((result) => {
       console.log(result + 'The dialog was closed');
       const isDeviceData = this.appService.getJSONData();
+      this.appService.loggedIn = true;
       // const timeInterval = setInterval(() => {
       //   if(isDeviceData) {
           this.router.navigate(["/table-view"]);

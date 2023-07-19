@@ -36,7 +36,7 @@ export class LinearGaugeComponent {
         type: 'solidgauge',
       },
       title: {
-        text: this.chartType + ' on ' + this.data.name,
+        text: this.chartType + ' on ' + this.data.name + (this.chartType === 'Active Time' ? ' (in Hrs)' : ' (in kWatts)'),
       },
       credits: {
         enabled: false,
@@ -54,7 +54,7 @@ export class LinearGaugeComponent {
       },
       yAxis: {
         min: 0,
-        max: 10,
+        max: this.chartType === 'Active Time' ? 24 : 3,
         stops: [
           [0.1, '#55BF3B'], // green
           [0.5, '#DDDF0D'], // yellow

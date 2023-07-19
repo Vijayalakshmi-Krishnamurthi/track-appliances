@@ -32,6 +32,7 @@ export class ApplicationService {
   private devices = [];
   public chartData: TreeNode<ITableData>[] = [];
   public chartData$: BehaviorSubject<TreeNode<ITableData>[]>;
+  public loggedIn: boolean = false;
 
   constructor(private http: HttpClient) {
     this.chartData$ = new BehaviorSubject<TreeNode<ITableData>[]>(

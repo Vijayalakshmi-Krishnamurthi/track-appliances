@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { ApplicationService } from 'app/appService/application.service';
 import * as Highcharts from 'highcharts';
+import HighchartsMore from 'highcharts/highcharts-more';
+import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
+
+HighchartsMore(Highcharts);
+HighchartsSolidGauge(Highcharts);
 
 interface IData {
   name: string;
@@ -39,7 +44,7 @@ export class PieChartComponent {
       device.data.energyConsumption.forEach((energy) => {
         totalEnergy = totalEnergy + parseInt(energy.value);
       });
-      this.chartData[index] = { name: device.data.deviceName, y: totalEnergy };
+      this.chartData[index] = { name: device.data.deviceID, y: totalEnergy };
       totalEnergy = 0;
     })
   }

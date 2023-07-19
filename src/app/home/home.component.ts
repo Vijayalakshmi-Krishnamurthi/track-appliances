@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplicationService } from 'app/appService/application.service';
 
 @Component({
   selector: 'home-page',
@@ -7,6 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent {
 
-  constructor() {}
+  constructor(public appService: ApplicationService) {}
 
 }

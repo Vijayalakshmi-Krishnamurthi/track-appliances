@@ -8,7 +8,6 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NbThemeModule, NbLayoutModule, NbDialogModule, NbCardModule, NbSelectModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { ReportComponent } from './report/report.component';
 import { ReportsModule } from './reports/reports.module';
 import { ToolbarComponent } from './home/toolbar/toolbar.component';
 import { ContentComponent } from './home/content/content.component';
@@ -20,7 +19,6 @@ import { ApplicationService } from './appService/application.service';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    ReportComponent,
     ToolbarComponent,
     ContentComponent,
     FooterComponent
